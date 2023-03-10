@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Leave&Go</title>
+  <link href="https://unpkg.com/tailwindcss@^2.1.1/dist/tailwind.min.css" rel="stylesheet" />
+  <script src="main.js"></script>
+</head>
+
+<body class="bg-gray-100">
+  <script src="\node_modules\flowbite\dist\flowbite.min.js"></script>
+
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow fixed top-0 w-full">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between py-4">
+        <div class="flex items-center">
+          <a href="#" class="font-bold text-xl text-gray-800 mb-2 md:mb-0">Leave&Go</a>
+        </div>
+        <div class="flex items-center">
+          <!-- Drawer init and toggle -->
+          <div class="lg:hidden md:hidden">
+            <button id="navbar-burger" class="navbar-burger flex items-center text-blue-600 p-3">
+              <svg class="block h-4 w-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <title>Mobile menu</title>
+                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+              </svg>
+            </button>
+          </div>
+          <div id="menu" class="hidden md:flex">
+            <a href="#" class="text-gray-600 hover:text-gray-800 mx-4">Notre service</a>
+            <a href="#" class="text-gray-600 hover:text-gray-800 mx-4">Qui sommes-nous ?</a>
+            <a href="#" class="text-gray-600 hover:text-gray-800 mx-4">Contactez-nous</a>
+          </div>
+          <div class="ml-0 md:ml-4 mt-4 md:mt-0">
+            <a href="#"
+              class="hidden md:inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full text-sm md:text-base">Questionnaires</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sidebar -->
+  <div id="sidebar"
+    class="fixed inset-y-0 right-0 w-64 px-8 py-4 bg-gradient-to-b from-blue-500 to-green-500 text-white hidden transition-all duration-500">
+    <h2 class="text-xl font-bold mb-4 text-center mt-0">Sidebar Title</h2>
+    <ul class="flex flex-col justify-center mt-8">
+      <li class="flex-1 flex items-center justify-center py-2"><a href="#">Link 1</a></li>
+      <li class="flex-1 flex items-center justify-center py-2"><a href="#">Link 2</a></li>
+      <li class="flex-1 flex items-center justify-center py-2"><a href="#">Link 3</a></li>
+    </ul>
+    <button id="close-sidebar"
+      class="absolute top-0 right-0 mt-4 mr-4 text-white hover:text-gray-300 focus:outline-none">
+      <svg class="h-6 w-6 fill-current" viewBox="0 0 20 20">
+        <path fill-rule="evenodd"
+          d="M18.293 1.707a1 1 0 0 0-1.414 0L10 8.586 3.121 1.707A1 1 0 0 0 1.707 3.121L8.586 10l-6.879 6.879a1 1 0 1 0 1.414 1.414L10 11.414l6.879 6.879a1 1 0 0 0 1.414-1.414L11.414 10l6.879-6.879a1 1 0 0 0 0-1.414z">
+        </path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    //Opening sidebar 
+    const sidebar = document.getElementById("sidebar");
+    const sidebarOpenButton = document.getElementById("navbar-burger");
+    const closeSidebarButton = document.getElementById("close-sidebar");
+
+    sidebarOpenButton.addEventListener("click", () => {
+      sidebar.classList.toggle("hidden");
+    });
+
+    //Closing sidebar
+    closeSidebarButton.addEventListener("click", () => {
+      sidebar.classList.add("translate-x-full");
+      sidebar.classList.add("opacity-0");
+      setTimeout(() => {
+        sidebar.classList.add("hidden");
+        sidebar.classList.remove("translate-x-full");
+        sidebar.classList.remove("opacity-0");
+      }, 500); // waits 500ms before adding the "hidden" class
+    });
+  </script>
+
+  <!-- Hero section -->
+  <div class="bg-gradient-to-b from-blue-500 to-green-500 py-12 md:py-24" style="margin-top: 64px">
+    <div class="container mx-auto px-4">
+      <div class="md:flex md:items-center md:justify-between">
+        <div class="md:w-1/2 mb-6 md:mb-0">
+          <h2 class="text-4xl font-bold leading-tight text-white mb-4">
+            Stockez votre vélo en toute sécurité avec Leave&Go !
+          </h2>
+          <p class="text-gray-200 text-lg mb-6">
+            Aidez-nous à vous fournir le meilleur service possible en
+            répondant à nos questionnaires.
+          </p>
+          <div class="flex flex-col md:flex-row md:items-center md:gap-x-4 gap-y-4">
+            <a href="#"
+              class="bg-white text-blue-500 hover:text-blue-700 font-bold py-2 px-4 rounded-full">Questionnaire
+              utilisateur</a>
+            <a href="#"
+              class="bg-white text-blue-500 hover:text-blue-700 font-bold py-2 px-4 rounded-full">Questionnaire
+              stockeur</a>
+          </div>
+        </div>
+        <div class="md:w-1/2">
+          <img class="mx-auto md:mx-0 w-full md:w-9/10 object-cover" src="\images\img\bike.jpg" alt="Bikes parked" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bike storage section -->
+  <div class="bg-gray-100 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+          Bienvenue chez Leave&Go !
+        </h3>
+      </div>
+      <div class="mt-10">
+        <p class="text-xl text-gray-700 leading-relaxed text-center">
+          Chez Leave&Go, nous visons à simplifier la vie des cyclistes en
+          offrant un réseau de commerces et de particuliers disposant
+          d'espaces inutilisés pour accueillir en toute sécurité leurs vélos
+          moyennant une compensation financière. Nous sommes convaincus que
+          notre solution permettra de faciliter vos déplacements à vélo tout
+          en contribuant à la promotion d'un mode de transport écologique et
+          durable.
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <!-- Our service section -->
+  <div class="bg-gray-100 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+          Notre Service
+        </h3>
+      </div>
+      <div class="mt-10">
+        <div class="flex flex-wrap">
+          <div class="w-full md:w-1/3 px-4 mb-8 flex-grow">
+            <div class="bg-blue-100 p-6 shadow rounded-lg">
+              <div class="mb-4">
+                <svg class="w-12 h-12 text-blue-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6v5l-3 3-3-3v-5z" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-4">
+                Trouvez un espace de stockage
+              </h3>
+              <p class="text-gray-600 leading-relaxed">
+                Consultez les espaces de stockage de vélos disponibles dans
+                votre région et comparez les prix.
+              </p>
+            </div>
+          </div>
+          <div class="w-full md:w-1/3 px-4 mb-8 flex-grow">
+            <div class="bg-blue-100 p-6 shadow rounded-lg">
+              <div class="mb-4">
+                <svg class="w-12 h-12 text-blue-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6v5l-3 3-3-3v-5z" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-4">
+                Réservez et payez
+              </h3>
+              <p class="text-gray-600 leading-relaxed">
+                Réservez votre espace de stockage en ligne et payez en toute
+                sécurité grâce à notre plateforme de paiement intégrée.
+              </p>
+            </div>
+          </div>
+          <div class="w-full md:w-1/3 px-4 mb-8 flex-grow">
+            <div class="bg-blue-100 p-6 shadow rounded-lg">
+              <div class="mb-4">
+                <svg class="w-12 h-12 text-blue-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6v5l-3 3-3-3v-5z" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-4">
+                Stockez votre vélo
+              </h3>
+              <p class="text-gray-600 leading-relaxed">
+                Déposez votre vélo chez le propriétaire de l'espace de
+                stockage de façon sécurisée tout au long
+                de la durée de la location.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Us section -->
+  <div class="bg-gray-100 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+          Qui sommes-nous ?
+        </h3>
+      </div>
+      <div class="mt-10">
+        <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+          <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="flex-shrink-0">
+              <img class="h-96 w-full object-cover" src="\images\img\armand.png" alt="Founder 1" height="1200" />
+            </div>
+            <div class="p-4">
+              <h3 class="uppercase text-lg font-semibold text-gray-900">
+                Armand HURAULT
+              </h3>
+              <p class="mt-2 text-gray-600">
+                Chef suprême de la M2-APP RS. Génie, Playboy, Philanthrope, (Futur) Miliardaire.
+              </p>
+              <a href="https://www.linkedin.com/in/john-doe/"><i class="fab fa-linkedin fa-lg mt-4"></i></a>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="flex-shrink-0">
+              <img class="h-96 w-full object-cover" src="\images\img\ouriel.jpg" alt="Founder 2" height="1200" />
+            </div>
+            <div class="p-4">
+              <h3 class="uppercase text-lg font-semibold text-gray-900">
+                Ouriel MAMAN
+              </h3>
+              <p class="mt-2 text-gray-600">
+                Passionné d'entreuprenariat depuis qu'il sait parler et
+                enthousiaste des nouvelles technologies. Fan n°1 de Armand.
+              </p>
+              <a href="https://www.linkedin.com/in/jane-smith/"><i class="fab fa-linkedin fa-lg mt-4"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Us section -->
+  <div class="bg-gray-100">
+    <div class="container mx-auto px-4 py-10 md:py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+            Contactez-nous
+          </h3>
+        </div>
+        <div class="flex justify-center">
+          <div class="mt-4 w-full md:w-2/3 lg:w-1/2">
+            <form>
+              <div class="mb-4">
+                <label for="name" class="block text-gray-700 font-bold mb-2">Nom</label>
+                <input type="text" id="name" name="name"
+                  class="w-full px-4 py-2 rounded-lg shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300"
+                  placeholder="Enter your name" />
+              </div>
+              <div class="mb-4">
+                <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
+                <input type="email" id="email" name="email"
+                  class="w-full px-4 py-2 rounded-lg shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300"
+                  placeholder="Enter your email" />
+              </div>
+              <div class="mb-6">
+                <label for="message" class="block text-gray-700 font-bold mb-2">Message</label>
+                <textarea id="message" name="message"
+                  class="w-full px-4 py-2 rounded-lg shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300"
+                  rows="4" placeholder="Enter your message"></textarea>
+              </div>
+              <div class="flex justify-center">
+                <button type="submit"
+                  class="px-4 py-2 bg-blue-500 text-white font-bold rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue active:bg-blue-800">
+                  Envoyer
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer section -->
+  <footer class="bg-white">
+    <div class="container mx-auto px-4 py-8 md:py-6 flex flex-col md:flex-row justify-between items-center">
+      <p class="text-gray-600 text-sm md:text-base mb-4 md:mb-0">
+        © Leave&Go 2023. Tous droits réservés.
+      </p>
+      <div class="flex items-center">
+        <a href="mailto:info@bikestorage.com"
+          class="text-gray-600 hover:text-gray-800 mx-4 text-sm md:text-base">leavengo.management@gmail.com</a>
+        <a href="#" class="text-gray-600 hover:text-gray-800 mx-4 text-sm md:text-base">Politique de confidentialité</a>
+        <a href="#" class="text-gray-600 hover:text-gray-800 mx-4 text-sm md:text-base">Conditions d'utilisation</a>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

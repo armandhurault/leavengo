@@ -30,12 +30,12 @@
             </button>
           </div>
           <div id="menu" class="hidden md:flex">
-            <a href="#" class="text-gray-600 hover:text-gray-800 mx-4">Notre service</a>
-            <a href="#" class="text-gray-600 hover:text-gray-800 mx-4">Qui sommes-nous ?</a>
-            <a href="#" class="text-gray-600 hover:text-gray-800 mx-4">Contactez-nous</a>
+            <a href="#our-service-section" class="text-gray-600 hover:text-gray-800 mx-4">Notre service</a>
+            <a href="#about-us-section" class="text-gray-600 hover:text-gray-800 mx-4">Qui sommes-nous ?</a>
+            <a href="#contact-us-section" class="text-gray-600 hover:text-gray-800 mx-4">Contactez-nous</a>
           </div>
           <div class="ml-0 md:ml-4 mt-4 md:mt-0">
-            <a href="#"
+            <a href="#hero-section"
               class="hidden md:inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full text-sm md:text-base">Questionnaires</a>
           </div>
         </div>
@@ -46,11 +46,12 @@
   <!-- Sidebar -->
   <div id="sidebar"
     class="fixed inset-y-0 right-0 w-64 px-8 py-4 bg-gradient-to-b from-blue-500 to-green-500 text-white hidden transition-all duration-500">
-    <h2 class="text-xl font-bold mb-4 text-center mt-0">Sidebar Title</h2>
+    <h2 class="text-xl font-bold mb-4 text-center mt-0">Navigation</h2>
     <ul class="flex flex-col justify-center mt-8">
-      <li class="flex-1 flex items-center justify-center py-2"><a href="#">Link 1</a></li>
-      <li class="flex-1 flex items-center justify-center py-2"><a href="#">Link 2</a></li>
-      <li class="flex-1 flex items-center justify-center py-2"><a href="#">Link 3</a></li>
+      <li class="flex-1 flex items-center justify-center py-2"><a href="#hero-section">Questionnaires</a></li>
+      <li class="flex-1 flex items-center justify-center py-2"><a href="#our-service-section">Notre service</a></li>
+      <li class="flex-1 flex items-center justify-center py-2"><a href="#about-us-section">Qui sommes-nous ?</a></li>
+      <li class="flex-1 flex items-center justify-center py-2"><a href="#contact-us-section">Contactez-nous</a></li>
     </ul>
     <button id="close-sidebar"
       class="absolute top-0 right-0 mt-4 mr-4 text-white hover:text-gray-300 focus:outline-none">
@@ -81,40 +82,53 @@
         sidebar.classList.add("hidden");
         sidebar.classList.remove("translate-x-full");
         sidebar.classList.remove("opacity-0");
-      }, 500); // waits 500ms before adding the "hidden" class
+      }, 50); // waits 500ms before adding the "hidden" class
+    });
+
+    //Close sidebar when clicking outside of it
+    document.addEventListener("click", (event) => {
+      const target = event.target;
+      const isClickInsideSidebar = sidebar.contains(target);
+      const isClickOnOpenButton = target == sidebarOpenButton;
+      if (!isClickInsideSidebar && !isClickOnOpenButton) {
+        sidebar.classList.add("translate-x-full");
+        sidebar.classList.add("opacity-0");
+        setTimeout(() => {
+          sidebar.classList.add("hidden");
+          sidebar.classList.remove("translate-x-full");
+          sidebar.classList.remove("opacity-0");
+        }, 50); // waits 500ms before adding the "hidden" class
+      }
     });
   </script>
 
   <!-- Hero section -->
-  <div class="bg-gradient-to-b from-blue-500 to-green-500 py-12 md:py-24" style="margin-top: 64px">
-    <div class="container mx-auto px-4">
-      <div class="md:flex md:items-center md:justify-between">
-        <div class="md:w-1/2 mb-6 md:mb-0">
-          <h2 class="text-4xl font-bold leading-tight text-white mb-4">
-            Stockez votre vélo en toute sécurité avec Leave&Go !
-          </h2>
-          <p class="text-gray-200 text-lg mb-6">
-            Aidez-nous à vous fournir le meilleur service possible en
-            répondant à nos questionnaires.
-          </p>
-          <div class="flex flex-col md:flex-row md:items-center md:gap-x-4 gap-y-4">
-            <a href="#"
-              class="bg-white text-blue-500 hover:text-blue-700 font-bold py-2 px-4 rounded-full">Questionnaire
-              utilisateur</a>
-            <a href="#"
-              class="bg-white text-blue-500 hover:text-blue-700 font-bold py-2 px-4 rounded-full">Questionnaire
-              stockeur</a>
-          </div>
-        </div>
-        <div class="md:w-1/2">
-          <img class="mx-auto md:mx-0 w-full md:w-9/10 object-cover" src="images\img\bike.jpg" alt="Bikes parked" />
+  <div id="hero-section" class="bg-gradient-to-b from-blue-500 to-green-500 py-8 md:py-16 lg:py-24"
+    style="margin-top: 64px">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row md:items-center">
+      <div class="w-full md:w-1/2 mb-6 md:mb-0 md:order-last md:ml-4">
+        <img class="mx-auto w-full md:w-9/10 object-cover" src="images\img\bike.jpg" alt="Bikes parked" />
+      </div>
+      <div class="w-full md:w-1/2 md:ml-auto">
+        <h2 class="text-2xl md:text-4xl font-bold leading-tight text-white mb-4">
+          Stockez votre vélo en toute sécurité avec Leave&Go !
+        </h2>
+        <p class="text-gray-200 text-base md:text-lg mb-6">
+          Aidez-nous à vous fournir le meilleur service possible en répondant à nos questionnaires.
+        </p>
+        <div class="flex flex-col md:flex-row md:items-center md:gap-x-4 gap-y-4">
+          <a href="#"
+            class="bg-white text-blue-500 hover:text-blue-700 font-bold py-2 px-4 rounded-full mb-2 md:mb-0 md:mr-2">Questionnaire
+            utilisateur</a>
+          <a href="#" class="bg-white text-blue-500 hover:text-blue-700 font-bold py-2 px-4 rounded-full">Questionnaire
+            stockeur</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Bike storage section -->
-  <div class="bg-gray-100 py-12">
+  <!-- Our service section -->
+  <div id="our-service-section" class="bg-gray-100 py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center">
         <h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
@@ -135,22 +149,17 @@
     </div>
   </div>
 
-
-
-
-
-
   <!-- Our service section -->
   <div class="bg-gray-100 py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center">
         <h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-          Notre Service
+          Notre service
         </h3>
       </div>
       <div class="mt-10">
         <div class="flex flex-wrap">
-          <div class="w-full md:w-1/3 px-4 mb-8 flex-grow">
+          <div class="w-full md:w-1/3 px-4 mb-8 flex-grow text-center">
             <div class="bg-blue-100 p-6 shadow rounded-lg">
               <div class="mb-4">
                 <svg class="w-12 h-12 text-blue-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -159,7 +168,7 @@
                 </svg>
               </div>
               <h3 class="text-xl font-bold text-gray-800 mb-4">
-                Trouvez un espace de stockage
+                Trouvez un espace
               </h3>
               <p class="text-gray-600 leading-relaxed">
                 Consultez les espaces de stockage de vélos disponibles dans
@@ -167,7 +176,7 @@
               </p>
             </div>
           </div>
-          <div class="w-full md:w-1/3 px-4 mb-8 flex-grow">
+          <div class="w-full md:w-1/3 px-4 mb-8 flex-grow text-center">
             <div class="bg-blue-100 p-6 shadow rounded-lg">
               <div class="mb-4">
                 <svg class="w-12 h-12 text-blue-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -184,7 +193,7 @@
               </p>
             </div>
           </div>
-          <div class="w-full md:w-1/3 px-4 mb-8 flex-grow">
+          <div class="w-full md:w-1/3 px-4 mb-8 flex-grow text-center">
             <div class="bg-blue-100 p-6 shadow rounded-lg">
               <div class="mb-4">
                 <svg class="w-12 h-12 text-blue-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -208,7 +217,7 @@
   </div>
 
   <!-- About Us section -->
-  <div class="bg-gray-100 py-12">
+  <div id="about-us-section" class="bg-gray-100 py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center">
         <h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
@@ -252,7 +261,7 @@
   </div>
 
   <!-- Contact Us section -->
-  <div class="bg-gray-100">
+  <div id="contact-us-section" class="bg-gray-100">
     <div class="container mx-auto px-4 py-10 md:py-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center">
@@ -267,19 +276,19 @@
                 <label for="name" class="block text-gray-700 font-bold mb-2">Nom</label>
                 <input type="text" id="name" name="name"
                   class="w-full px-4 py-2 rounded-lg shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300"
-                  placeholder="Enter your name" />
+                  placeholder="Entrez votre nom" />
               </div>
               <div class="mb-4">
                 <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
                 <input type="email" id="email" name="email"
                   class="w-full px-4 py-2 rounded-lg shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300"
-                  placeholder="Enter your email" />
+                  placeholder="Entrez votre email" />
               </div>
               <div class="mb-6">
                 <label for="message" class="block text-gray-700 font-bold mb-2">Message</label>
                 <textarea id="message" name="message"
                   class="w-full px-4 py-2 rounded-lg shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300"
-                  rows="4" placeholder="Enter your message"></textarea>
+                  rows="4" placeholder="Entrez votre message"></textarea>
               </div>
               <div class="flex justify-center">
                 <button type="submit"
@@ -296,18 +305,18 @@
 
   <!-- Footer section -->
   <footer class="bg-white">
-    <div class="container mx-auto px-4 py-8 md:py-6 flex flex-col md:flex-row justify-between items-center">
-      <p class="text-gray-600 text-sm md:text-base mb-4 md:mb-0">
-        © Leave&Go 2023. Tous droits réservés.
-      </p>
-      <div class="flex items-center">
-        <a href="mailto:info@bikestorage.com"
+    <div class="container mx-auto px-4 py-8 md:py-6 flex flex-col md:flex-row justify-evenly items-center">
+      <div class="flex flex-col items-center justify-evenly">
+        <p class="text-gray-600 text-sm md:text-base mb-4 md:mb-0">
+          © Leave&Go 2023. Tous droits réservés.
+        </p>
+        <a href="mailto:leavengo.management@gmail.com"
           class="text-gray-600 hover:text-gray-800 mx-4 text-sm md:text-base">leavengo.management@gmail.com</a>
         <a href="#" class="text-gray-600 hover:text-gray-800 mx-4 text-sm md:text-base">Politique de confidentialité</a>
         <a href="#" class="text-gray-600 hover:text-gray-800 mx-4 text-sm md:text-base">Conditions d'utilisation</a>
       </div>
     </div>
   </footer>
-</body>
 
+</body>
 </html>

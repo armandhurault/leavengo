@@ -65,11 +65,12 @@
 
   <!-- JavaScript -->
   <script>
-    //Opening sidebar 
+
     const sidebar = document.getElementById("sidebar");
     const sidebarOpenButton = document.getElementById("navbar-burger");
     const closeSidebarButton = document.getElementById("close-sidebar");
 
+    //Opening sidebar
     sidebarOpenButton.addEventListener("click", () => {
       sidebar.classList.toggle("hidden");
     });
@@ -117,17 +118,18 @@
           Aidez-nous à vous fournir le meilleur service possible en répondant à nos questionnaires.
         </p>
         <div class="flex flex-col md:flex-row md:items-center md:gap-x-4 gap-y-4">
-          <a href="#"
-            class="bg-white text-blue-500 hover:text-blue-700 font-bold py-2 px-4 rounded-full mb-2 md:mb-0 md:mr-2">Questionnaire
-            utilisateur</a>
-          <a href="#" class="bg-white text-blue-500 hover:text-blue-700 font-bold py-2 px-4 rounded-full">Questionnaire
-            stockeur</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdkMh5_VHpoVu-YkaLjanWER4D0tAArIEZs4RQ_KqdV0JVptw/viewform"
+            class="bg-white text-blue-500 hover:text-blue-700 font-bold py-2 px-4 rounded-full mb-2 md:mb-0 md:mr-2"
+            target="_blank">Questionnaire utilisateur</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSd2E2622APLkH4GGugy15inp5iVon5tm8I32rjeI80JOQFmGg/viewform"
+            class="bg-white text-blue-500 hover:text-blue-700 font-bold py-2 px-4 rounded-full"
+            target="_blank">Questionnaire stockeur</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Our service section -->
+  <!-- Presentation section -->
   <div id="our-service-section" class="bg-gray-100 py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center">
@@ -143,18 +145,19 @@
           moyennant une compensation financière. Nous sommes convaincus que
           notre solution permettra de faciliter vos déplacements à vélo tout
           en contribuant à la promotion d'un mode de transport écologique et
-          durable.
+          durable. Pour le moment notre projet entrepreunarial est encore en
+          cours de définition et nous avons besoin de votre aide pour le développer.
         </p>
       </div>
     </div>
   </div>
 
-  <!-- Our service section -->
+  <!-- Our service for users section -->
   <div class="bg-gray-100 py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center">
         <h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-          Notre service
+          Notre service pour les utilisateurs
         </h3>
       </div>
       <div class="mt-10">
@@ -216,6 +219,56 @@
     </div>
   </div>
 
+  <!-- Our service for hosts section -->
+  <div class="bg-gray-100 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+          Notre service pour les stockeurs
+        </h3>
+      </div>
+      <div class="mt-10">
+        <div class="flex flex-wrap">
+          <div class="w-full md:w-1/3 px-4 mb-8 flex-grow text-center">
+            <div class="bg-green-100 p-6 shadow rounded-lg">
+              <div class="mb-4">
+                <svg class="w-12 h-12 text-green-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6v5l-3 3-3-3v-5z" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-4">
+                Rentabilisez votre espace non utilisé
+              </h3>
+              <p class="text-gray-600 leading-relaxed">
+                Générez un revenu complémentaire en louant votre espace inutilisé, que vous soyez un commerce ou bien un
+                particulier.
+              </p>
+            </div>
+          </div>
+          <div class="w-full md:w-1/3 px-4 mb-8 flex-grow text-center">
+            <div class="bg-green-100 p-6 shadow rounded-lg">
+              <div class="mb-4">
+                <svg class="w-12 h-12 text-green-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6v5l-3 3-3-3v-5z" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-4">
+                Attirez de nouveaux clients
+              </h3>
+              <p class="text-gray-600 leading-relaxed">
+                Augmentez votre visibilité et fidélisez de nouveaux clients dans votre commerce à travers à notre
+                plateforme.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <!-- About Us section -->
   <div id="about-us-section" class="bg-gray-100 py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -228,16 +281,19 @@
         <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
           <div class="bg-white rounded-lg shadow-md overflow-hidden">
             <div class="flex-shrink-0">
-              <img class="h-96 w-full object-cover" src="images\img\armand.png" alt="Founder 1" height="1200" />
+              <img class="h-96 w-full object-cover" src="images\img\armand.jpg" alt="Founder 1" height="1200" />
             </div>
             <div class="p-4">
               <h3 class="uppercase text-lg font-semibold text-gray-900">
                 Armand HURAULT
               </h3>
               <p class="mt-2 text-gray-600">
-                Chef suprême de la M2-APP RS. Génie, Playboy, Philanthrope, Futur Milliardaire.
+                Apprenti Ingénieur en informatique à EFREI Paris et Allianz France.
               </p>
-              <a href="https://www.linkedin.com/in/john-doe/"><i class="fab fa-linkedin fa-lg mt-4"></i></a>
+              <a href="https://www.linkedin.com/in/armand-hurault/" target="_blank">
+                <img src="images\icons\linkedin.svg" alt="LinkedIn" class="mt-4" width="30px">
+              </a>
+
             </div>
           </div>
           <div class="bg-white rounded-lg shadow-md overflow-hidden">
@@ -249,46 +305,17 @@
                 Ouriel MAMAN
               </h3>
               <p class="mt-2 text-gray-600">
-                Passionné d'entreuprenariat depuis qu'il sait parler et
-                enthousiaste des nouvelles technologies. Fan n°1 de Armand.
+                Apprenti Ingénieur en informatique à EFREI Paris et Exane BNP Paribas.
               </p>
-              <a href="https://www.linkedin.com/in/jane-smith/"><i class="fab fa-linkedin fa-lg mt-4"></i></a>
+              <a href="https://www.linkedin.com/in/armand-hurault/" target="_blank">
+                <img src="images\icons\linkedin.svg" alt="LinkedIn" class="mt-4" width="30px">
+              </a>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-    <!-- Steven Weeb section -->
-    <div id="about-us-section" class="bg-gray-100 py-12">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center">
-          <h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-            Remerciements spéciaux
-          </h3>
-        </div>
-        <div class="mt-10">
-          <div class="flex justify-center">
-            <div class="bg-white rounded-lg shadow-md overflow-hidden max-w-md">
-              <div class="flex-shrink-0">
-                <img class="h-96 w-full object-cover" src="images\img\steven.jpg" alt="Founder 1" height="1200">
-              </div>
-              <div class="p-4">
-                <h3 class="uppercase text-lg font-semibold text-gray-900">
-                  Steven WEEB
-                </h3>
-                <p class="mt-2 text-gray-600">
-                  Généreux donateur. Superchatto arigatou gozaimasu 🙇‍♂️. Devrait peut-être disparaître de ce monde  (oui peut-être) ...
-                </p>
-                <a href="https://www.linkedin.com/in/john-doe/"><i class="fab fa-linkedin fa-lg mt-4"></i></a>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-    </div>
 
   <!-- Contact Us section -->
   <div id="contact-us-section" class="bg-gray-100">
@@ -301,21 +328,12 @@
         </div>
         <div class="flex justify-center">
           <div class="mt-4 w-full md:w-2/3 lg:w-1/2">
-            <form>
-              <div class="mb-4">
-                <label for="name" class="block text-gray-700 font-bold mb-2">Nom</label>
-                <input type="text" id="name" name="name"
-                  class="w-full px-4 py-2 rounded-lg shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300"
-                  placeholder="Entrez votre nom" />
-              </div>
-              <div class="mb-4">
-                <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
-                <input type="email" id="email" name="email"
-                  class="w-full px-4 py-2 rounded-lg shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300"
-                  placeholder="Entrez votre email" />
-              </div>
+            <form id="contact-form" onsubmit="buildBody()"
+              action="mailto:leavengo.management@gmail.com?subject=Formulaire%20de%20contact%20Leave%20%26%20Go&body="
+              method="post" enctype="text/plain">
               <div class="mb-6">
-                <label for="message" class="block text-gray-700 font-bold mb-2">Message</label>
+                <label for="message" class="block text-gray-700 font-bold mb-2">Message à
+                  leavengo.management@gmail.com</label>
                 <textarea id="message" name="message"
                   class="w-full px-4 py-2 rounded-lg shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300"
                   rows="4" placeholder="Entrez votre message"></textarea>
@@ -333,6 +351,17 @@
     </div>
   </div>
 
+  <script>
+    // Use the text field to build the body of the mail
+    function buildBody() {
+      var message = document.getElementById("message").value;
+      var body = encodeURIComponent(message);
+      var mailtoLink = "mailto:leavengo.management@gmail.com?subject=Formulaire%20de%20contact%20Leave%20%26%20Go&body=" + body;
+      document.forms[0].action = mailtoLink;
+    }
+  </script>
+
+
   <!-- Footer section -->
   <footer class="bg-white">
     <div class="container mx-auto px-4 py-8 md:py-6 flex flex-col md:flex-row justify-evenly items-center">
@@ -342,8 +371,10 @@
         </p>
         <a href="mailto:leavengo.management@gmail.com"
           class="text-gray-600 hover:text-gray-800 mx-4 text-sm md:text-base">leavengo.management@gmail.com</a>
+        <!--
         <a href="#" class="text-gray-600 hover:text-gray-800 mx-4 text-sm md:text-base">Politique de confidentialité</a>
         <a href="#" class="text-gray-600 hover:text-gray-800 mx-4 text-sm md:text-base">Conditions d'utilisation</a>
+      -->
       </div>
     </div>
   </footer>
